@@ -1,307 +1,621 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FullCalendar Example</title>
-    <link rel=" shortcut icon" href="image/favicon.ico">
 
-    <link rel="stylesheet" href="vendor/css/fullcalendar.min.css" />
-    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
-    <link rel="stylesheet" href='vendor/css/select2.min.css' />
-    <link rel="stylesheet" href='vendor/css/bootstrap-datetimepicker.min.css' />
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="css/main.css">
+<html>
+	<head>
+		<title>Pinball Website Template | Home :: w3layouts</title>
+		<link href="../resources/css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="../resources/images/fav-icon.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		
 
-</head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+		
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Center Modal</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<style>
-#flipkart-navbar {
-    background-color: #eda1c3;
-    color: #FFFFFF;
-}
+        <style>
+			  body input.inpt::-webkit-input-placeholder {
+			  font-size: 14px;
+			  color: #999999;
+			  font-family: 'Lato', sans-serif;
+			}
+			body input.inpt:-moz-placeholder {
+			  font-size: 14px;
+			  color: #999999;
+			  font-family: 'Lato', sans-serif;
+			}
+			body input.inpt::-moz-placeholder {
+			  font-size: 14px;
+			  color: #999999;
+			  font-family: 'Lato', sans-serif;
+			}
+			body input.inpt:-ms-input-placeholder {
+			  font-size: 14px;
+			  color: #999999;
+			  font-family: 'Lato', sans-serif;
+			}
+			body input.inpt:focus {
+			  border-color: #999999;
+			}
+			
+			body h1.login_header {
+			  font-size: 30px;
+			  font-weight: 700;
+			  margin-bottom: 23px;
+			  text-align: center;
+			  text-indent: 6px;
+			  letter-spacing: 7px;
+			  text-transform: uppercase;
+			  color: #1e1f76;
+			}
+			body input.inpt {
+				text-align:center;
+				 font-size: 14px;
+				 width: 50%;
+				 height: 15px;
+				 margin-bottom: 12px;
+				 padding: 14px 22px;
+				 color: #999999;
+				 border: 3px solid #d1d8fe;
+				 background: transparent;
+				 -moz-border-radius: 2px;
+				 -webkit-border-radius: 2px;
+				 border-radius: 10px;
+				 margin: 0px 0px 12px 0px;
+				 outline: 0px solid #d1d8fe;
+			}
+        
+			body span.explain {
+				font-size: 15px;
+				margin: 0px 0px 17px 40px;
+				color: #1e1f76;
+			}
+			body .loginform{
+				text-align: center;
+			}
+			body .storebox{
+				text-align: left;
+				font-size: 13px;
+				margin: 0px 0px 0px 135px;
+				color: #999999;
+			}
+			body .container .content input.inpt {
+			  font-size: 14px;
+			  width: 40%;
+			  height: 22px;
+			  margin-bottom: 12px;
+			  padding: 16px 13px;
+			  color: #999999;
+			  border: 1px solid #d9d9d9;
+			  background: transparent;
+			  -moz-border-radius: 2px;
+			  -webkit-border-radius: 2px;
+			  border-radius: 2px;
+			  margin: 0px 0px 12px 40px;
+			}
+			
+			body input.loginbutton{
+				text-align: center;
+				font-size: 17px;
+				width: 58%;
+				margin-bottom: 40px;
+				height: 40px;
+				color: #1b1620;
+				background-color: #7687ba;
+				outline: 0px solid #7687ba;
+				border-radius: 5px;
+			}
+                    /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #ebebeb;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 37%; /* Could be more or less, depending on screen size */
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-radius: 15px;                          
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+       
+		
+            
+        </style>
+        
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!-- Global CSS for the page and tiles -->
+  		<link rel="stylesheet" href="../resources/css/main.css">
+  		<!-- //Global CSS for the page and tiles -->
+		<!---start-click-drop-down-menu----->
+		<script src="../resources/js/jquery.min.js"></script>
+        <!----start-dropdown--->
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
 
-.row1{
-    padding-top: 10px;
-    padding-right: 50px;
-}
+			$(document).ready(function(){
+			       // Get the modal
+		        var login_Modal = document.getElementById("login_Modal");
+		 
+		        // Get the button that opens the modal
+		        var login = document.getElementById("login");
+		 
+		        // Get the <span> element that closes the modal
+		        var span = document.getElementsByClassName("close")[0];                                          
+		 
+		        // When the user clicks on the button, open the modal 
+		        login.onclick = function() {
+		           login_Modal.style.display = "block";
+		       	}
+		 
+		        // When the user clicks on <span> (x), close the modal
+		        span.onclick = function() {
+		            login_Modal.style.display = "none";
+		        }
+		 
+		        // When the user clicks anywhere outside of the modal, close it
+		        window.onclick = function(event) {
+		            if (event.target == login_Modal) {
+		                login_Modal.style.display = "none";
+		            }
+		        }
+			});
 
-.row2 {
-    padding-bottom: 20px;
-}
-
-.flipkart-navbar-input {
-    padding: 11px 16px;
-    border-radius: 2px 0 0 2px;
-    border: 0 none;
-    outline: 0 none;
-    font-size: 15px;
-}
-
-.flipkart-navbar-button {
-    background-color: #ffe11b;
-    border: 1px solid #ffe11b;
-    border-radius: 0 2px 2px 0;
-    color: #565656;
-    padding: 10px 0;
-    height: 43px;
-    cursor: pointer;
-}
-
-.cart-button {
-    background-color: #2469d9;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
-    padding: 10px 0;
-    text-align: center;
-    height: 41px;
-    border-radius: 2px;
-    font-weight: 500;
-    width: 120px;
-    display: inline-block;
-    color: #FFFFFF;
-    text-decoration: none;
-    color: inherit;
-    border: none;
-    outline: none;
-}
-
-.cart-button:hover{
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-.cart-svg {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-.item-number {
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, .1);
-    height: 20px;
-    padding: 3px 6px;
-    font-weight: 500;
-    display: inline-block;
-    color: #fff;
-    line-height: 12px;
-    margin-left: 10px;
-}
-
-.upper-links {
-    display: inline-block;
-    padding: 0 11px;
-    line-height: 23px;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 0;
-    color: inherit;
-    border: none;
-    outline: none;
-    font-size: 12px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 0px;
-}
-
-.dropdown:hover {
-    background-color: #fff;
-}
-
-.dropdown:hover .links {
-    color: #000;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    display: none;
-    background-color: #fff;
-    color: #333;
-    left: 0px;
-    border: 0;
-    border-radius: 0;
-    box-shadow: 0 4px 8px -3px #555454;
-    margin: 0;
-    padding: 0px;
-}
-
-.links {
-    color: #fff;
-    text-decoration: none;
-}
-
-.links:hover {
-    color: #fff;
-    text-decoration: none;
-}
-
-.profile-links {
-    font-size: 12px;
-    font-family: 'Roboto', sans-serif;
-    border-bottom: 1px solid #e9e9e9;
-    box-sizing: border-box;
-    display: block;
-    padding: 0 11px;
-    line-height: 23px;
-}
-
-.profile-li{
-    padding-top: 2px;
-}
-
-.largenav {
-    display: none;
-}
-
-.smallnav{
-    display: block;
-}
-
-.smallsearch{
-    margin-left: 15px;
-    margin-top: 15px;
-}
-
-.menu{
-    cursor: pointer;
-}
-
-@media screen and (min-width: 768px) {
-    .largenav {
-        display: block;
-    }
-    .smallnav{
-        display: none;
-    }
-    .smallsearch{
-        margin: 0px;
-    }
-}
-
-/*Sidenav*/
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    box-shadow: 0 4px 8px -3px #555454;
-    padding-top: 0px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    color: #fff;        
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav a {font-size: 18px;}
-}
-
-.sidenav-heading{
-    font-size: 36px;
-    color: #fff;
-}
-</style>
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-<div id="flipkart-navbar">
-    <div class="container">
-        <div class="row row1">
-            <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 1</a></li>
-                <li class="upper-links"><a class="links" href="https://campusbox.org/">Link 2</a></li>
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 3</a></li>
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 4</a></li>
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 5</a></li>
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 6</a></li>
-                <li class="upper-links">
-                    <a class="links" href="http://clashhacks.in/">
-                        <svg class="" width="16px" height="12px" style="overflow: visible;">
-                            <path d="M8.037 17.546c1.487 0 2.417-.93 2.417-2.417H5.62c0 1.486.93 2.415 2.417 2.415m5.315-6.463v-2.97h-.005c-.044-3.266-1.67-5.46-4.337-5.98v-.81C9.01.622 8.436.05 7.735.05 7.033.05 6.46.624 6.46 1.325v.808c-2.667.52-4.294 2.716-4.338 5.98h-.005v2.972l-1.843 1.42v1.376h14.92v-1.375l-1.842-1.42z" fill="#fff"></path>
-                        </svg>
-                    </a>
-                </li>
-                <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Dropdown</a>
-                    <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="row row2">
-            <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
-                <h1 style="margin:0px;"><span class="largenav">Brand</span></h1>
-            </div>
-            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
-                <div class="row">
-                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Search for Products, Brands and more" name="">
-                    <button class="flipkart-navbar-button col-xs-1">
-                        <svg width="15px" height="15px">
-                            <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="cart largenav col-sm-2">
-                <a class="cart-button">
-                    <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
-                        <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
-                    </svg> Link
-                    <span class="item-number ">0</span>
-                </a>
-            </div>
-        </div>
+		</script>
+		
+		
+        <!----//End-dropdown--->
+		<!---//End-click-drop-down-menu----->
+		
+		
+	</head>
+	
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="../resources/images/logo.png" title="pinbal" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="/board/boardAllList"><span>전체</span></a></li>
+										<li><a href="#"><span>티켓</span></a></li>
+										<li><a href="#"><span>앨범</span></a></li>
+										<li><a href="#"><span>?</span></a></li>
+										<li><a href="#"><span>goods</span></a></li>
+										<li><a href="contact.html"><span>Contact</span></a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+				<div class="top-searchbar">
+					<form>
+						<input type="text" /><input type="submit" value="" />
+					</form>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#" id="login"><img src="../resources/images/user-pic.png" title="user-name" /><span>Login</span></a></li>
+  
+						</ul>
+						    <!-- Trigger/Open The Modal -->
+ 
+ 
+    <!-- The Modal -->
+    <div id="login_Modal" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 class="login_header">Login To Your Account</h1>                                                               
+        <br>
+        <div class="loginform">
+        <form action="">
+	        <input type="text" placeholder="아이디를 입력 해 주세요." class="inpt">
+	        <br>
+	        <input type="password" placeholder="비밀번호를 입력 해 주세요." class="inpt">
+	        <br>
+	        <div class="storebox">
+	        <input type="checkbox">아이디/비밀번호 저장
+	        </div>
+	        <br>
+	        <input type="button" value="로그인" class="loginbutton">
+ 		</form>
+ 			<a href="/joinForm">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a>아이디 찾기</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a>비밀번호 찾기</a>
+ 		</div>     
+      </div>
+ 
     </div>
-</div>
-<div id="mySidenav" class="sidenav">
-    <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-        <span class="sidenav-heading">Home</span>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    </div>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-</div>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		
+		
+
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			 <div id="main" role="main">
+			      <ul id="tiles">
+			        <!-- These are our grid blocks -->
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img1.jpg" width="282" height="118">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img2.jpg" width="282" height="344">
+						<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div> 	
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+					</li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img3.jpg" width="282" height="210">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img4.jpg" width="282" height="385">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <!----//--->
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img4.jpg" width="282" height="385">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img3.jpg" width="282" height="210">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img2.jpg" width="282" height="344">
+						<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+					</li>
+					  <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img1.jpg" width="282" height="118">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <!----//--->
+			         <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img1.jpg" width="282" height="118">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img2.jpg" width="282" height="344">
+						<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+					</li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img3.jpg" width="282" height="210">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onclick="location.href='single-page.html';">
+			        	<img src="../resources/images/img4.jpg" width="282" height="385">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Animation films</a></h3>
+				        		<span><a href="#"><label> </label>Movies</a></span>
+				        		<p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <!-- End of grid blocks -->
+			      </ul>
+			    </div>
+			</div>
+		</div>
+		<!---//End-content---->
+		<!----wookmark-scripts---->
+		  <script src="../resources/js/jquery.imagesloaded.js"></script>
+		  <script src="../resources/js/jquery.wookmark.js"></script>
+		  <script type="text/javascript">
+		    (function ($){
+		      var $tiles = $('#tiles'),
+		          $handler = $('li', $tiles),
+		          $main = $('#main'),
+		          $window = $(window),
+		          $document = $(document),
+		          options = {
+		            autoResize: true, // This will auto-update the layout when the browser window is resized.
+		            container: $main, // Optional, used for some extra CSS styling
+		            offset: 20, // Optional, the distance between grid items
+		            itemWidth:280 // Optional, the width of a grid item
+		          };
+		      /**
+		       * Reinitializes the wookmark handler after all images have loaded
+		       */
+		      function applyLayout() {
+		        $tiles.imagesLoaded(function() {
+		          // Destroy the old handler
+		          if ($handler.wookmarkInstance) {
+		            $handler.wookmarkInstance.clear();
+		          }
+		
+		          // Create a new layout handler.
+		          $handler = $('li', $tiles);
+		          $handler.wookmark(options);
+		        });
+		      }
+		      /**
+		       * When scrolled all the way to the bottom, add more tiles
+		       */
+		      function onScroll() {
+		        // Check if we're within 100 pixels of the bottom edge of the broser window.
+		        var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
+		            closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
+		
+		        if (closeToBottom) {
+		          // Get the first then items from the grid, clone them, and add them to the bottom of the grid
+		          var $items = $('li', $tiles),
+		              $firstTen = $items.slice(0, 10);
+		          $tiles.append($firstTen.clone());
+		
+		          applyLayout();
+		        }
+		      };
+		
+		      // Call the layout function for the first time
+		      applyLayout();
+		
+		      // Capture scroll event.
+		      $window.bind('scroll.wookmark', onScroll);
+		    })(jQuery);
+		  </script>
+		<!----//wookmark-scripts---->
+		<!----start-footer--->
+		<div class="footer">
+			<p>Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		</div>
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+</html>
+
