@@ -23,6 +23,6 @@
 	
 	<context:component-scan base-package="com.dyung.kim" />
 	
-	
+	<resources mapping="/boardfile/*" location="c:"></resources>
 	
 </beans:beans>
