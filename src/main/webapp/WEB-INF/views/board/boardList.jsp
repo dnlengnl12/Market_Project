@@ -168,8 +168,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	margin-right:-670px;
         }
        
-		
-            
+		#footer { 
+			position: fixed; 
+			bottom: 0; 
+			width: 100%; 
+			text-align: center; 
+			
+		}
+
+
         </style>
         
 		<!----webfonts---->
@@ -232,6 +239,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			function writeForm(){
 				location.href="/board/boardWriteForm";
+			}
+			
+			function pagingFormSubmit(currentPage) {
+				var form = document.getElementById('pagingForm');
+				var page = document.getElementById('page');
+				page.value = currentPage;
+				form.submit();
 			}
 		</script>
 </head>
@@ -326,27 +340,55 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="clear"> </div>
          </div>
       </div>
+      
+      
+      
 		<!---//End-header---->
 			<!---start-content---->
 		<div class="content">
 			<div class="wrap">
 				<div id="main" role="main">
-			 <c:forEach var="l" items="${list }">
-			 	<div>
- 			      <img src="<c:url value="/resources/boardfile/${l.SAVEDFILE }"></c:url>" width="282" height="118">
+			 <c:forEach var="l" items="${list}" varStatus ="status">
+			 	<div style="float: left; margin: 10px;">
+ 			      <img src="<c:url value="../resources/boardfile/${l.SAVEDFILE }"></c:url>" width="282" height="118">
 			      <br>
 			      <span>${l.ITEM_TITLE }</span>
 			      <br>
 			      <span>${l.ITEM_PRICE }</span>원
 			      <br>
 			      <span>${l.re_add }</span>
-			    </div>    	
+			    </div>    
+
 			 </c:forEach>
-			 	<input type="button" id="fllowQuickMenu" class="write" value="글등록" onclick="writeForm();">
+			 	
 				</div>
 			</div>
 		</div>
-			      
+      
+  
+		                
+	  
+		<form id="pagingForm" method="get" action="/board/boardAllList">
+			<input type="hidden" name="page" id="page" />
+		</form>
+			
+		<div id="footer">
+		<!-- 페이지 이동 부분 -->                      
+			<a href="javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+			<a href="javascript:pagingFormSubmit(${navi.currentPage - 1})">◀</a> &nbsp;&nbsp;
+		
+			<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
+				<c:if test="${counter == navi.currentPage}"><b></c:if>
+					<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+				<c:if test="${counter == navi.currentPage}"></b></c:if>
+			</c:forEach>
+			&nbsp;&nbsp;
+			<a href="javascript:pagingFormSubmit(${navi.currentPage + 1})">▶</a> &nbsp;&nbsp;
+			<a href="javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})">▷▷</a>
+		<br>
+		<!-- /페이지 이동 끝 -->    
+		<input type="button" id="fllowQuickMenu" class="write" value="글등록" onclick="writeForm();" style="fonf-size:100px">   
+		</div> 
 </body>
 
 			

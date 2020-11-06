@@ -52,5 +52,14 @@
             f.item_num = i.item_num
             and
             f.file_index = 1
+        order by
+        	item_date desc
+	</select>
+	<select id="countBoard" resultType="int">
+	 select 
+	 		count(*)
+	 from
+	 	item_db
+	
 	</select>
 </mapper>
