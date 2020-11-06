@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: minyoungseo
 Build-Jdk: 13
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: SC￫ﾧﾈ￬ﾊﾤ￭ﾄﾰ
-Build-Jdk: 1.8.0_261
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 3c6b3a063e23ea64a4e0411c4604036f53d38bc5

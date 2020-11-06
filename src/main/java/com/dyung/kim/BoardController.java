@@ -29,12 +29,9 @@ public class BoardController {
 	final int PagePerGroup=5;
 	@Autowired
 	private com.dyung.kim.service.FileService service2;
-<<<<<<< HEAD
+
 	private String uploadPath="/Users/minyoungseo/Desktop/MarketProject/src/main/webapp/resources/boardfile";
-=======
-	private String uploadPath="C:\\Users\\SC마스터\\Documents\\workspace-spring-tool-suite-4-4.7.0.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MarketProject\\resources\\boardfile";
->>>>>>> 3c6b3a063e23ea64a4e0411c4604036f53d38bc5
-	
+
 	@Autowired
 	private HttpSession session;
 	@RequestMapping(value="/boardAllList", method=RequestMethod.GET)
