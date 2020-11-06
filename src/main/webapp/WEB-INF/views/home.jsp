@@ -344,25 +344,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             		<div class="user">
             		<a href="#" id="activator2" class="right_bt"><img src="../resources/images/user-pic.png" title="user-name" /><span class="acc_name">${sessionScope.loginNick }</span></a>
             		             <div class="box2" id="box2">
-                <div class="box_content">                                                
-                  <div class="box_content_center">
-                      <div class="form_content">
-                        <div class="menu_box_list">
-                           <ul>
-                              <li><a href="/board/boardAllList"><span>나의 판매 목록</span></a></li>
-                              <li><a href="#"><span>나의 구매 목록</span></a></li>
-                              <li><a href="#"><span>찜 목록</span></a></li>
-                              <li><a href="#"><span>개인정보 관리</span></a></li>
-                              <li><a href="#"><span>로그아웃</span></a></li>
-                              <li><a href="contact.html"><span>Contact</span></a></li>
-                              <div class="clear"> </div>
-                           </ul>
-                        </div>
-                        <a class="boxclose2" id="boxclose2"><span></span></a>
-                     </div>                                  
-                  </div>    
-               </div> 
-            </div>         
+					                <div class="box_content">                                                
+					                  <div class="box_content_center">
+					                      <div class="form_content">
+					                        <div class="menu_box_list">
+					                           <ul>
+					                              <li><a href="/board/boardAllList"><span>나의 판매 목록</span></a></li>
+					                              <li><a href="#"><span>나의 구매 목록</span></a></li>
+					                              <li><a href="#"><span>찜 목록</span></a></li>
+					                              <li><a href="#"><span>개인정보 관리</span></a></li>
+					                              <li><a href="#"><span>로그아웃</span></a></li>
+					                              <li><a href="contact.html"><span>Contact</span></a></li>
+					                              <div class="clear"> </div>
+					                           </ul>
+					                        </div>
+					                        <a class="boxclose2" id="boxclose2"><span></span></a>
+					                     </div>                                  
+					                  </div>    
+					               </div> 
+					            </div>         
  <%--            			<ul>
 							<li class="menu"><a href="#" class="right_bt"><img src="../resources/images/user-pic.png" title="user-name" /><span>${sessionScope.loginNick }</span></a>
 							<ul class="hide">
@@ -380,12 +380,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                      <li><a href="#" id="login"><img src="../resources/images/user-pic.png" title="user-name" /><span>Login</span></a></li>
   
                   </ul>
-<<<<<<< HEAD
                       <!-- Trigger/Open The Modal -->
-
-=======
-                      
->>>>>>> 01feeea0f30dce07b32265d989814d51b48781b3
  
                    <!-- The Modal -->
                    <div id="login_Modal" class="modal">

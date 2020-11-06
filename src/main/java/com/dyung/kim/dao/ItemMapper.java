@@ -11,5 +11,6 @@ public interface ItemMapper {
 
 	public int itemInsert(ItemVO item);
 	public ArrayList<HashMap<Object, Object>> selectItemAll(RowBounds rb);
+	public ArrayList<HashMap<Object, Object>> selectItemMain();
 	public int countBoard();
 }

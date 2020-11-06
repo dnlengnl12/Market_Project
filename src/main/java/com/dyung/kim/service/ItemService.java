@@ -26,7 +26,7 @@ public class ItemService {
 		}
 		return page;
 	}
-	
+
 	public ArrayList<HashMap<Object, Object>> selectItemAll(int startRecord,int countPerPage) {
 		ArrayList<HashMap<Object, Object>> map = dao.selectItemAll(startRecord,countPerPage);
 		return map;
@@ -36,5 +36,10 @@ public class ItemService {
 		int count =0;
 		count=dao.countBoard();
 		return count;
+	}
+	
+	public ArrayList<HashMap<Object, Object>> selectItemMain() {
+		ArrayList<HashMap<Object, Object>> list = dao.selectItemMain();
+		return list;
 	}
 }
