@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dyung.kim.dao.AccountMapper;
 import com.dyung.kim.vo.accountVO;
 
 @Service
@@ -47,6 +48,19 @@ public class AccountService {
 		}
 		return page;
 	}
-
+	public boolean idCheck(String acc_id) {
+		accountVO account = dao.accountOne(acc_id);
+		String account_Check = account.getAcc_id();
+		boolean data ;
+		
+		if(account_Check.equals(acc_id)) {
+			data = false;
+		} else {
+			data = true;
+		}
+		
+			return data;
+	}
+	
 }
 	

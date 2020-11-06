@@ -1,5 +1,21 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: minyoungseo
 Build-Jdk: 13
 Created-By: Maven Integration for Eclipse
 
+=======
+<<<<<<< HEAD
+Manifest-Version: 1.0
+Built-By: kwk80
+Build-Jdk: 1.8.0_251
+Created-By: Maven Integration for Eclipse
+
+=======
+Manifest-Version: 1.0
+Built-By: dnlen
+Build-Jdk: 1.8.0_241
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> fef76cab30d49385a513837ed98e6ce64e7f07df
+>>>>>>> f36995901cbb530368e2916fe82504d640c7b6dc

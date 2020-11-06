@@ -48,4 +48,15 @@ public class ItemDAO {
 		return count;
 	}
 	
+	public ArrayList<HashMap<Object, Object>> selectItemMain(){
+		ArrayList<HashMap<Object, Object>> list = null;
+		ItemMapper mapper = session.getMapper(ItemMapper.class);
+		try {
+			list = mapper.selectItemMain();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 }

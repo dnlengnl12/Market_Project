@@ -161,6 +161,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             cursor: pointer;
         }
         
+        .menu a{cursor:pointer;}
+        .menu .hide{display:none;}
+        
+        .acc_menu{
+        	text-align:center;
+        }
+        
+        .acc_name{
+
+        	font-size: 35px;
+        	margin-left : 10px;
+        }
+        
+
        
       
             
@@ -176,25 +190,62 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <script src="../resources/js/jquery.min.js"></script>
         <!----start-dropdown--->
          <script type="text/javascript">
+
+ 		$(document).ready(function(){
+			$(".menu>a").click(function(){
+				var submenu = $(this).next("ul");
+
+				if(submenu.is(":visible")){
+					submenu.slideUp();
+				}else{
+					submenu.slideDown();
+				}
+/* 			}).mouseover(function(){
+				$(this).next("ul").slideDown();
+			}).mouseleave(function(){
+				$(this).next("ul").slideUp(); */
+			});
+ 	 	});
          var $ = jQuery.noConflict();
             $(function() {
-               $('#activator').click(function(){
-                  $('#box').animate({'top':'0px'},500);
-               });
-               $('#boxclose').click(function(){
-               $('#box').animate({'top':'-700px'},500);
-               });
-            });
-            $(document).ready(function(){
-            //Hide (Collapse) the toggle containers on load
-            $(".toggle_container").hide(); 
-            //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
-            $(".trigger").click(function(){
-               $(this).toggleClass("active").next().slideToggle("slow");
-                  return false; //Prevent the browser jump to the link anchor
-            });
+	               	$('#activator').click(function(){
+	                	$('#box').animate({'top':'0px'},500);
+	               	});
+	               	$('#boxclose').click(function(){
+	               		$('#box').animate({'top':'-700px'},500);
+	               	});
+            	});
+	            $(document).ready(function(){
+		            //Hide (Collapse) the toggle containers on load
+		            $(".toggle_container").hide(); 
+		            //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+		            $(".trigger").click(function(){
+		            	$(this).toggleClass("active").next().slideToggle("slow");
+		                return false; //Prevent the browser jump to the link anchor
+	            	});
                            
-         });
+        	});
+
+            $(function() {
+                $('#activator2').click(function(){
+                   $('#box2').animate({'top':'0px'},500);
+                });
+                $('#boxclose2').click(function(){
+                	$('#box2').animate({'top':'-700px'},500);
+                });
+             });
+             $(document).ready(function(){
+             //Hide (Collapse) the toggle containers on load
+             $(".toggle_container").hide(); 
+             //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+             $(".trigger").click(function(){
+                $(this).toggleClass("active").next().slideToggle("slow");
+                   return false; //Prevent the browser jump to the link anchor
+             });
+                            
+          });
+
+
 
          $(document).ready(function(){
                 // Get the modal
@@ -288,16 +339,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                </form>
             </div>
             <c:choose>
-            <c:when test="${not empty sessionScope.loginID }">
-                        <div class="userinfo">
-               <div class="user">
-                  <ul>
-                     <li><a href="#" id="login"><img src="../resources/images/user-pic.png" title="user-name" /><span>${sessionScope.loginNick }</span></a></li>
-  
-                  </ul>
-
-               </div>
-            </div>
+			<c:when test="${not empty sessionScope.loginID }">
+            	<div class="userinfo">
+            		<div class="user">
+            		<a href="#" id="activator2" class="right_bt"><img src="../resources/images/user-pic.png" title="user-name" /><span class="acc_name">${sessionScope.loginNick }</span></a>
+            		             <div class="box2" id="box2">
+					                <div class="box_content">                                                
+					                  <div class="box_content_center">
+					                      <div class="form_content">
+					                        <div class="menu_box_list">
+					                           <ul>
+					                              <li><a href="/board/boardAllList"><span>나의 판매 목록</span></a></li>
+					                              <li><a href="#"><span>나의 구매 목록</span></a></li>
+					                              <li><a href="#"><span>찜 목록</span></a></li>
+					                              <li><a href="#"><span>개인정보 관리</span></a></li>
+					                              <li><a href="#"><span>로그아웃</span></a></li>
+					                              <li><a href="contact.html"><span>Contact</span></a></li>
+					                              <div class="clear"> </div>
+					                           </ul>
+					                        </div>
+					                        <a class="boxclose2" id="boxclose2"><span></span></a>
+					                     </div>                                  
+					                  </div>    
+					               </div> 
+					            </div>         
+ <%--            			<ul>
+							<li class="menu"><a href="#" class="right_bt"><img src="../resources/images/user-pic.png" title="user-name" /><span>${sessionScope.loginNick }</span></a>
+							<ul class="hide">
+							<li class="acc_menu">내 정보</li>
+							<li class="acc_menu">내가 쓴글</li>
+							<li class="acc_menu">찜 목록</li>
+						</ul> --%>
+					</div>
+				</div>
             </c:when>
             <c:otherwise>
             <div class="userinfo">
@@ -306,7 +380,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                      <li><a href="#" id="login"><img src="../resources/images/user-pic.png" title="user-name" /><span>Login</span></a></li>
   
                   </ul>
-                      
+                      <!-- Trigger/Open The Modal -->
  
                    <!-- The Modal -->
                    <div id="login_Modal" class="modal">
@@ -342,7 +416,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       </div>
       <!---//End-header---->
       
-      
+
+      <!---start-content---->
 
       <!---start-content---->
       <div class="content">
@@ -350,241 +425,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <div id="main" role="main">
                <ul id="tiles">
                  <!-- These are our grid blocks -->
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img1.jpg" width="282" height="118">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+                 <c:forEach var="map" items="${list }">
+                    <li onclick="location.href='single-page.html';">
+                       <img src="<c:url value="/resources/boardfile/${map.SAVEDFILE }"></c:url>" width="282" height="118">
+                       <div class="post-info">
+                          <div class="post-basic-info">
+                             <h3><a href="#">${map.ITEM_TITLE }</a></h3>
+                             <span><a href="#"><label> </label>${map.ACC_NAME }</a></span>
+                             <p>${map.ITEM_CONTENTS }</p>
+                          </div>
+                          <div class="post-info-rate-share">
+                             <div class="rateit">
+                                <span> </span>
+                             </div>
+                             <div class="post-share">
+                                <span></span>
+                             </div>
+                             <div class="clear"> </div>
+                          </div>
                        </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img2.jpg" width="282" height="344">
-                  <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>    
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-               </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img3.jpg" width="282" height="210">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img4.jpg" width="282" height="385">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <!----//--->
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img4.jpg" width="282" height="385">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img3.jpg" width="282" height="210">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img2.jpg" width="282" height="344">
-                  <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-               </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img1.jpg" width="282" height="118">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <!----//--->
-                  <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img1.jpg" width="282" height="118">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img2.jpg" width="282" height="344">
-                  <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-               </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img3.jpg" width="282" height="210">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
-                 <li onclick="location.href='single-page.html';">
-                    <img src="../resources/images/img4.jpg" width="282" height="385">
-                    <div class="post-info">
-                       <div class="post-basic-info">
-                          <h3><a href="#">Animation films</a></h3>
-                          <span><a href="#"><label> </label>Movies</a></span>
-                          <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-                       </div>
-                       <div class="post-info-rate-share">
-                          <div class="rateit">
-                             <span> </span>
-                          </div>
-                          <div class="post-share">
-                             <span> </span>
-                          </div>
-                          <div class="clear"> </div>
-                       </div>
-                    </div>
-                 </li>
+                    </li>
+                 
+                 </c:forEach>
                  <!-- End of grid blocks -->
                </ul>
              </div>
          </div>
       </div>
+
+
       <!---//End-content---->
       <!----wookmark-scripts---->
         <script src="../resources/js/jquery.imagesloaded.js"></script>

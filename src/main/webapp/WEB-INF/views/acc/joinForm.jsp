@@ -542,10 +542,10 @@ body .container .content .signup-cont {
 
       })
    })
-/*   $(function(){
-      $("#acc_pw2s").keyup(function(e){
+	   $(function(){
+      $("#acc_pw2").keyup(function(e){
          var data = $(this).val();
-         var data2 = $("#acc_password").val();
+         var data2 = $("#acc_pw").val();
 
          if(data != data2){
             $("#pwcheck").css("color","red");
@@ -557,7 +557,7 @@ body .container .content .signup-cont {
          
 
       })
-   }) */
+   }) 
       
 
    function formCheck(){
@@ -660,25 +660,25 @@ body .container .content .signup-cont {
          });
    });
  
-   /* function numkeyCheck(e) {
+    function numkeyCheck(e) {
       var keyValue = event.keyCode;
       if( ((keyValue >= 48 ) && (keyValue <= 57))) return true;
       else { alert("숫자만 입력하실 수 있습니다."); return false;}
 
-   } */
+   } 
 
-   /* function idCheck2() {
+    function idCheck2() {
       $.ajax({
-         url: "/idCheck",
+         url: "/account/idCheck",
          type: "post",
-         data: { member_id: $("#member_id").val() },
+         data: { acc_id: $("#acc_id").val() },
          success: function(data) {
-            if(data == "1"){
-               alert("사용할 수 있는 아이디입니다.");
-               idCheckflag = true;
+            if(data == false){
+               alert("사용할 수 없는 아이디 입니다.");
+               
             } else {
-               alert("사용할 수 없는 아이디입니다.");
-               idCheckflag = false;
+               alert("사용할 수 있는 아이디 입니다.");
+               
             }
          },
          error: function(e) {
@@ -687,13 +687,9 @@ body .container .content .signup-cont {
          }
 
       }); 
-   }*/
+   }
 
-   /* function childForm(){
-      var parentForm = window.open('/searchSchool','학교검색',left='+(screen.availWidth-1000)/2+',top='+(screen.availHeight-600)/2+',
-            'width=1000,height=600,location=center,status=no,scrollbars=yes');
-      document.getElementById("parentForm").value = document.getElementById("childForm").value; 
-      } */
+  
    function goPopup(){
          // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
           var pop = window.open("/popup/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
