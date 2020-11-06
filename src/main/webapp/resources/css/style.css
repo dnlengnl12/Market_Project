@@ -111,10 +111,30 @@ body{
 	text-align:center;
 	left:0px;
  }
+ 
+ .box2{
+	position:absolute;
+	top:-100px;
+	width:100%;
+	color:#7F7F7F;
+	margin:auto;
+	padding:0px;
+	z-index:999999;
+	text-align:center;
+	left:0px;
+ }
 .box_content_center{
 	background: rgba(240, 239, 238, 0.74);
 }
 a.boxclose{
+	cursor: pointer;
+	text-align: center;
+	display: block;
+	position: absolute;
+	top: 1.9em;
+	right: 15em;
+ }
+ a.boxclose2{
 	cursor: pointer;
 	text-align: center;
 	display: block;
@@ -160,6 +180,15 @@ a.boxclose{
 .boxclose span:hover{
 	background:url(../images/close2h.png) no-repeat 0px 0px;
 }
+.boxclose2 span{
+	width:35px;
+	height:35px;
+	display:inline-block;
+	background:url(../images/close2.png) no-repeat 0px 0px;
+}
+.boxclose2 span:hover{
+	background:url(../images/close2h.png) no-repeat 0px 0px;
+}
 /*--userinfo--*/
 .userinfo{
 	float: right;
@@ -175,7 +204,7 @@ a.boxclose{
 	font-size: 1em;
 }
 .user ul li a{
-	color:#8C8C8C;
+	color:#292929;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
