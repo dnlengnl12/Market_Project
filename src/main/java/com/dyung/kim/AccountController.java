@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dyung.kim.service.AccountService;
 import com.dyung.kim.vo.accountVO;
@@ -29,6 +30,13 @@ public class AccountController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(accountVO account) {
 		return ac.accountOne(account);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
+	public String idCheck(accountVO acc_id) {
+		
+		return ac.accountOne(acc_id);
 	}
 	
 

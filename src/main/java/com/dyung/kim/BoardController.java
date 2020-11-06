@@ -27,7 +27,7 @@ public class BoardController {
 	
 	@Autowired
 	private com.dyung.kim.service.FileService service2;
-	private String uploadPath="C:\\Users\\dnlen\\Documents\\workspace-spring-tool-suite-4-4.7.1.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MarketProject\\resources\\boardfile";
+	private String uploadPath="C:\\Users\\kwk80\\Documents\\workspace-spring-tool-suite-4-4.7.0.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MarketProject\\resources\\boardfile";
 	
 	@Autowired
 	private HttpSession session;
