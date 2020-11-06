@@ -29,7 +29,11 @@ public class BoardController {
 	final int PagePerGroup=5;
 	@Autowired
 	private com.dyung.kim.service.FileService service2;
+<<<<<<< HEAD
 	private String uploadPath="/Users/minyoungseo/Desktop/MarketProject/src/main/webapp/resources/boardfile";
+=======
+	private String uploadPath="C:\\Users\\SC마스터\\Documents\\workspace-spring-tool-suite-4-4.7.0.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MarketProject\\resources\\boardfile";
+>>>>>>> 3c6b3a063e23ea64a4e0411c4604036f53d38bc5
 	
 	@Autowired
 	private HttpSession session;
@@ -78,8 +82,8 @@ public class BoardController {
 		System.out.println(item.toString());
 		String page = service.itemInsert(item);
 		int item_num = item.getItem_num();
-		//upload->파일이 있다면
-			//파일 저장
+		//upload->�뙆�씪�씠 �엳�떎硫�
+			//�뙆�씪 ���옣
 		for(int i=0; i<upload.length; i++) {
 			if(!upload[i].isEmpty()) {
 			FileVO file = new FileVO();

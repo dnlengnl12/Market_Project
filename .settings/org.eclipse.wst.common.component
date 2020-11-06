@@ -17,9 +17,13 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources/test-annotations"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated_tests"/>
+<<<<<<< HEAD
         		
         <property name="java-output-path" value="target/classes"/>
                 
+=======
+		<property name="java-output-path" value="target/classes"/>
+>>>>>>> 3c6b3a063e23ea64a4e0411c4604036f53d38bc5
         <property name="context-root" value="kim"/>
         	
     </wb-module>

@@ -256,6 +256,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="../resources/js/jquery.min.js"></script>
         <!----start-dropdown--->
          <script type="text/javascript">
+			    function formCheck(){
+
+			    	var item_title = document.getElementById("item_title").value;
+			    	var item_price = document.getElementById("item_price").value;
+			    	var item_contents = document.getElementById("item_contents").value;
+			    	var upload = document.getElementById("upload").value;
+
+			    	var flag = true;
+		
+					if(item_title == ""){
+					     alert("제목을 입력해 주세요.");
+					     return false;
+					    }
+				 
+				 
+			    if(item_price == ""){
+			        alert("가격을 입력해 주세요.");
+			        return false;
+			    	}
+			    
+			    
+			    if(item_contents == ""){
+			        alert("글을 입력해 주세요.");
+			        return false;
+			    	}
+			    
+				
+			    if(upload == ""){
+			        alert("파일을 첨부해 주세요");
+			        return false;
+			    	}
+			    	
+			    	if(flag) document.getElementById("formCheck").submit();
+			    
+			    }
+
+
 /*          var oEditors = [];
          nhn.husky.EZCreator.createInIFrame({
           oAppRef: oEditors,
@@ -415,7 +452,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="wrap">
 			 <div id="main" role="main">
 			 	<div class="form">
-				 	<form action="/board/register" method="post" enctype="multipart/form-data">
+				 	<form action="/board/register" method="post" enctype="multipart/form-data" id="formCheck">
 				 		<div class="mainExplain">글 등록</div>
 				 		<hr align="left" size="2px" color="black">
 				 		<br>
@@ -429,23 +466,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 		<hr class="row1" align="left">
 				 		<br>
 				     	<span class="explainList">제목</span>
-				    	<input type="text" placeholder="제목을 입력 해 주세요." name="item_title" class="title">
+				    	<input type="text" placeholder="제목을 입력 해 주세요." name="item_title" id="item_title" class="title">
 				  		<hr class="row1" align="left">
 				  		<br>
 				  		<span class="explainList">가격</span>
-				  		<input type="text" placeholder="가격을 입력 해 주세요." name="item_price" class="price">원
+				  		<input type="text" placeholder="가격을 입력 해 주세요." name="item_price" id="item_price" class="price">원
 				  		<hr class="row1" align="left">
 				  		<br>
 				  		<span class="explainList2">내용</span>
-				  		<textarea rows="10" cols="100" name="item_contents"></textarea>
+				  		<textarea rows="10" cols="100" name="item_contents" id="item_contents"></textarea>
 				  		<hr class="row1" align="left">
 				  		<br>
 				  		<span class="explainList">파일 첨부</span>
-				  		<input type="file" name="upload" multiple="multiple">
+				  		<input type="file" name="upload" multiple="multiple" id="upload">
 				  		<hr class="row1" align="left">
 				  		<br>
 				  		<div class="row2">
-				  		<input type="submit" value="등록" class="submit">
+				  		<input type="button" value="등록" class="submit" onclick="formCheck();">
 				  		<input type="button" value="취소" class="esc" onclick="esc();">
 				  		</div>
 				  		

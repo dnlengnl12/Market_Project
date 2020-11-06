@@ -306,8 +306,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                      <li><a href="#" id="login"><img src="../resources/images/user-pic.png" title="user-name" /><span>Login</span></a></li>
   
                   </ul>
-                      <!-- Trigger/Open The Modal -->
- 
+                      
  
                    <!-- The Modal -->
                    <div id="login_Modal" class="modal">
