@@ -5,7 +5,10 @@
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources/test-annotations"/>
+=======
+>>>>>>> fef76cab30d49385a513837ed98e6ce64e7f07df
 		<property name="java-output-path" value="target/classes"/>
         <property name="context-root" value="kim"/>
 	</wb-module>
