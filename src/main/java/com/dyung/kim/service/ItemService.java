@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dyung.kim.dao.ItemDAO;
+import com.dyung.kim.dao.ItemMapper;
 import com.dyung.kim.vo.ItemVO;
 
 @Service
@@ -26,9 +27,14 @@ public class ItemService {
 		return page;
 	}
 	
-	public ArrayList<HashMap<Object, Object>> selectItemAll() {
-		ArrayList<HashMap<Object, Object>> map = dao.selectItemAll();
+	public ArrayList<HashMap<Object, Object>> selectItemAll(int startRecord,int countPerPage) {
+		ArrayList<HashMap<Object, Object>> map = dao.selectItemAll(startRecord,countPerPage);
 		return map;
 	}
 	
+	public int countBoard() {
+		int count =0;
+		count=dao.countBoard();
+		return count;
+	}
 }

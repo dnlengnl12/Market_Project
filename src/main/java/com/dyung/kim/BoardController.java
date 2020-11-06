@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.dyung.kim.service.ItemService;
 import com.dyung.kim.util.FileService;
+import com.dyung.kim.util.PageNavigator;
 import com.dyung.kim.vo.FileVO;
 import com.dyung.kim.vo.ItemVO;
 
@@ -24,16 +25,26 @@ public class BoardController {
 
 	@Autowired
 	private ItemService service;
-	
+	final int CountPerPage=12;
+	final int PagePerGroup=5;
 	@Autowired
 	private com.dyung.kim.service.FileService service2;
-	private String uploadPath="C:\\Users\\dnlen\\Documents\\workspace-spring-tool-suite-4-4.7.1.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MarketProject\\resources\\boardfile";
+<<<<<<< HEAD
+	private String uploadPath="/Users/minyoungseo/Desktop/MarketProject/src/main/webapp/resources/boardfile";
+=======
+	private String uploadPath="C:\\Users\\SC마스터\\Documents\\workspace-spring-tool-suite-4-4.7.0.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MarketProject\\resources\\boardfile";
+>>>>>>> 3c6b3a063e23ea64a4e0411c4604036f53d38bc5
 	
 	@Autowired
 	private HttpSession session;
 	@RequestMapping(value="/boardAllList", method=RequestMethod.GET)
-	public String boardList(Model model) {
-		ArrayList<HashMap<Object, Object>> list = service.selectItemAll();
+	public String boardList(@RequestParam(value="page",defaultValue="1") int page
+							,Model model) {
+		
+		
+		int count  =service.countBoard();
+		PageNavigator navi = new PageNavigator(CountPerPage,PagePerGroup,page,count);
+		ArrayList<HashMap<Object, Object>> list = service.selectItemAll(navi.getStartRecord(),navi.getCountPerPage());
 		
 		for(int i=0; i<list.size(); i++) {
 			String add = (String)list.get(i).get("ACC_ADD2");
@@ -49,7 +60,7 @@ public class BoardController {
 		}
 		
 		
-		
+		model.addAttribute("navi",navi);
 		model.addAttribute("list", list);
 		return "board/boardList";
 	}
@@ -71,8 +82,8 @@ public class BoardController {
 		System.out.println(item.toString());
 		String page = service.itemInsert(item);
 		int item_num = item.getItem_num();
-		//upload->파일이 있다면
-			//파일 저장
+		//upload->�뙆�씪�씠 �엳�떎硫�
+			//�뙆�씪 ���옣
 		for(int i=0; i<upload.length; i++) {
 			if(!upload[i].isEmpty()) {
 			FileVO file = new FileVO();
@@ -89,4 +100,6 @@ public class BoardController {
 
 		return "redirect:/board/boardAllList";
 	}
+	
+	
 }
